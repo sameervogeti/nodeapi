@@ -1,6 +1,7 @@
 const express=require("express")
 const mongoose=require("mongoose")
-const router=require("./routes/post")
+const postRoutes=require("./routes/post")
+const userRoutes=require("./routes/auth")
 const morgan=require("morgan")
 const dotenv=require("dotenv")
 const bodyParser=require('body-parser')
@@ -18,7 +19,8 @@ const app=express()
 app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(expressValidator())
-app.use("/",router)
+app.use("/",postRoutes)
+app.use("/",userRoutes)
 
 
 const port=process.env.PORT ||8080
