@@ -42,5 +42,6 @@ exports.signout=async(req,res)=>
     return res.json({message:"Signout successful"})
 },
 exports.requireSignIn=expressjwt({
-    secret:process.env.JWT_SECRET
+    secret:process.env.JWT_SECRET,
+    userProperty:"auth"
 })

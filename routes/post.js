@@ -5,7 +5,7 @@ const validator=require("../validator/validator")
 
 const router=express.Router()
 
-router.get("/",requireSignIn,getPosts)
-router.post("/post",validator.createPostValidator,createPost)
+router.get("/",getPosts)
+router.post("/post",requireSignIn,validator.createPostValidator,createPost)
 
 module.exports=router;
